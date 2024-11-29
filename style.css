@@ -27,12 +27,12 @@ body {
   
   .text-animation {
     position: relative;
-    margin-top: 10rem;
+    margin-top: 21rem;
     text-align: end;
   }
   
   #animated-text {
-    font-size: 0.5rem;
+    font-size: 1.4rem;
     color: #fff;
     border-right: 2px solid #fff;
     white-space: nowrap;
@@ -49,10 +49,10 @@ body {
 	top: 0;
 	bottom: 0;
 	margin: auto;
-	-moz-transform: scale(0.3);
-	-ms-transform: scale(0.3);
-	-webkit-transform: scale(0.3);
-	transform: scale(0.3);
+	-moz-transform: scale(0.6);
+	-ms-transform: scale(0.6);
+	-webkit-transform: scale(0.6);
+	transform: scale(0.6);
 }
 .container div {
 	position: absolute;
