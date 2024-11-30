@@ -8,18 +8,10 @@ let charIndex = 0;
 const audioPlayer = document.getElementById('audioPlayer');
 
 // Função para tocar a música
-// Função para tocar a música
 function playMusic() {
     const audioPlayer = document.getElementById('audioPlayer');
     audioPlayer.play(); // Inicia a reprodução do áudio
 }
-  
-// Evento para chamar a função ao clicar em qualquer lugar na tela
- document.body.addEventListener('click', playMusic);
-  
-// Evento para chamar a função ao clicar em qualquer lugar na tela
-document.body.addEventListener('click', playMusic);
-  
 
 function typeText() {
   if (charIndex < text.length) {
@@ -50,9 +42,22 @@ function createFallingHeart() {
   }, animationDuration * 1000); 
 }
 
-
-
 // let. faz o coração do  dev bater mais forte.
-typeText();
-setInterval(createFallingHeart, 300);
-playMusic()
+document.getElementById("heart").addEventListener("click", function() {
+    this.style.animation = "explode 1s forwards";
+    this.style.transform = "scale(2)"; 
+  
+    document.body.style.background = "linear-gradient(to bottom, #a2c2e4, #f6a1c1, #8d89a1)";
+
+
+    setTimeout(function() {
+      document.getElementById("pagina-rosa").style.display = "block";
+      document.getElementById("abertura-coracao").style.display = "none";
+      playMusic();
+      typeText();
+      setInterval(createFallingHeart, 300);
+    }, 1000);
+  });
+
+
+
