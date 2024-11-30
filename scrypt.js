@@ -1,28 +1,32 @@
 // escreve o textinho bonitinho
-const text = "O amor floresce no tempo certo";
+const text = "Você é a batida perfeita da minha playlist. "; 
 const animatedText = document.getElementById("animated-text");
 const flowersWrapper = document.getElementById("flowers-wrapper");
 
-let charIndex = 0;
+
+
+function typeText() {
+    if (charIndex < text.length) {
+        if (text[charIndex] === "\n") {
+            animatedText.innerHTML += "<br>"; // Insere quebra de linha
+        } else {
+            animatedText.innerHTML += text[charIndex];
+        }
+        charIndex++;
+        setTimeout(typeText, 150); // Chama a próxima letra
+    }
+}
+
+// Chamar a função
+typeText();
 
 const audioPlayer = document.getElementById('audioPlayer');
 
-// Função para tocar a música
 function playMusic() {
     const audioPlayer = document.getElementById('audioPlayer');
     audioPlayer.play(); // Inicia a reprodução do áudio
 }
 
-function typeText() {
-  if (charIndex < text.length) {
-    animatedText.textContent += text[charIndex];
-    charIndex++; 
-  }
-  
-  if (charIndex < text.length) {
-    setTimeout(typeText, 150); 
-  }
-}
 
 // gera os coração funcionar
 function createFallingHeart() {
@@ -58,6 +62,5 @@ document.getElementById("heart").addEventListener("click", function() {
       setInterval(createFallingHeart, 300);
     }, 1000);
   });
-
 
 
