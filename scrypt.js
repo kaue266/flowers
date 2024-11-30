@@ -3,6 +3,7 @@ const text = "Você é a batida perfeita da minha playlist. ";
 const animatedText = document.getElementById("animated-text");
 const flowersWrapper = document.getElementById("flowers-wrapper");
 
+let charIndex = 0;
 
 
 function typeText() {
