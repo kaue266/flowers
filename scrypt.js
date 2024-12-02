@@ -5,7 +5,6 @@ const flowersWrapper = document.getElementById("flowers-wrapper");
 
 let charIndex = 0;
 
-
 function typeText() {
     if (charIndex < text.length) {
         if (text[charIndex] === "\n") {
@@ -18,14 +17,18 @@ function typeText() {
     }
 }
 
-// Chamar a função
-typeText();
-
-const audioPlayer = document.getElementById('audioPlayer');
+const volumeControl = document.getElementById("volume-control");
+const audioPlayer = document.getElementById("audioPlayer");
 
 function playMusic() {
     const audioPlayer = document.getElementById('audioPlayer');
     audioPlayer.play(); // Inicia a reprodução do áudio
+
+
+// Atualiza o volume com base na posição do controle
+volumeControl.addEventListener("input", function () {
+    audioPlayer.volume = this.value / 100; // Define o volume (0 a 1)
+});
 }
 
 
