@@ -48,18 +48,14 @@
 
 </section>   
 
-<audio id="audioPlayer">
-    <source src="musica.mp3" type="audio/mp3" preload="auto">
+<div id="lyrics-container" class="lyrics-container"></div>
+<audio id="audioPlayer" src="musica.mp3" preload="auto"></audio>
+    <div id="volume-popup" class="volume-popup" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
+            <label for="volumeControl" style="color: white; font-size: 16px; margin-right: 10px;">Volume:</label>
+            <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="1" onchange="setVolume()" style="width: 100px;">
+            <div id="time-display" class="time-display">0:00 / 0:00</div>
+   </div>
 
- 
-    Seu navegador não suporta a tag de áudio.
-  </audio>
-  
-  <div id="volume-popup" class="volume-popup">
-        <label for="volume-control">Volume:</label>
-        <input type="range" id="volume-control" min="0" max="100" value="50">
-    </div>
-    
 <script src="scrypt.js"> </script>
 </body>
 </html>

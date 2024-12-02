@@ -17,19 +17,19 @@ function typeText() {
     }
 }
 
-const volumeControl = document.getElementById("volume-control");
+const volumeControl = document.getElementById("volumeControl");
 const audioPlayer = document.getElementById("audioPlayer");
-
-function playMusic() {
-    const audioPlayer = document.getElementById('audioPlayer');
-    audioPlayer.play(); // Inicia a reprodução do áudio
 
 
 // Atualiza o volume com base na posição do controle
 volumeControl.addEventListener("input", function () {
-    audioPlayer.volume = this.value / 100; // Define o volume (0 a 1)
+    audioPlayer.volume = this.value / 50; // Define o volume (0 a 1)
 });
+
+function setVolume() {
+  audioPlayer.volume = volumeControl.value; // Ajusta o volume com o valor do slider
 }
+
 
 
 // gera os coração funcionar
@@ -50,6 +50,33 @@ function createFallingHeart() {
   }, animationDuration * 1000); 
 }
 
+
+
+// Armazena o último tempo exibido
+let lastTime = 0;
+
+const timeDisplay = document.getElementById("time-display"); // Display para o tempo
+
+// Sincroniza a letra com o áudio
+function syncLyrics() {
+  const currentTime = audioPlayer.currentTime;
+  timeDisplay.textContent = formatTime(currentTime) + " / " + formatTime(audioPlayer.duration);
+      lastTime = currentTime;
+  }
+
+// Função para formatar o tempo no formato minutos:segundos
+function formatTime(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+}
+
+// Toca a música e inicia a sincronização
+function playMusic() {
+  audioPlayer.play();
+  setInterval(syncLyrics, 500); // Chama a sincronização de 500ms em 500ms
+}
+
 // let. faz o coração do  dev bater mais forte.
 document.getElementById("heart").addEventListener("click", function() {
     this.style.animation = "explode 1s forwards";
@@ -66,5 +93,3 @@ document.getElementById("heart").addEventListener("click", function() {
       setInterval(createFallingHeart, 300);
     }, 1000);
   });
-
-
